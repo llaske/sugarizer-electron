@@ -12,8 +12,10 @@ rm -rf build
 
 echo --- Copying content
 rsync -av --exclude-from='exclude.electron' ../sugarizer/* sugarizer
-if [ "$1" == "macwin" -o "$2" == "macwin" ]; then
-  cp package.json.macwin sugarizer/package.json
+if [ "$1" == "mac" -o "$2" == "mac" ]; then
+  cp package.json.mac sugarizer/package.json
+elif [ "$1" == "win" -o "$2" == "win" ]; then
+  cp package.json.win sugarizer/package.json
 elif [ "$1" == "snap" -o "$2" == "snap" ]; then
   cp package.json.snap sugarizer/package.json
 elif [ "$1" == "linux" -o "$2" == "linux" ]; then
@@ -45,7 +47,7 @@ mkdir build
 mkdir build/icons
 cp res/icon/electron/icon-512.png build/icons/512x512.png
 npm install --save
-if [ "$1" == "macwin" -o "$2" == "macwin" ]; then
+if [ "$1" == "mac" -o "$2" == "mac" ]; then
   # Hack: see https://github.com/electron-userland/electron-builder/issues/4629
   npm install electron-builder@21.2.0 --save-dev
 else
