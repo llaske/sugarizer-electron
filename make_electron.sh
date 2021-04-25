@@ -45,13 +45,7 @@ mkdir build
 mkdir build/icons
 cp res/icon/electron/icon-512.png build/icons/512x512.png
 npm install --save
-if [ "$1" == "mac" -o "$2" == "mac" ]; then
-  # Hack: see https://github.com/electron-userland/electron-builder/issues/4629
-  npm install electron-builder@21.2.0 --save-dev
-else
-  npm install electron-builder --save-dev
-fi
-#export DEBUG=electron-builder
+npm install electron-builder --save-dev
 npm run dist
 cd ..
 cp -r sugarizer/dist/* dist
