@@ -20,13 +20,13 @@
     "grunt-contrib-jshint": "~2.1.0",
     "grunt-contrib-nodeunit": "~2.1.0",
     "grunt-terser": "~1.0.0",
-    "electron": "~9.4.0"
+    "electron": "~11.5.0"
   },
   "build": {
     "appId": "org.olpc-france.sugarizer",
     "copyright": "Copyright © 2013-2021, Lionel Laské, Sugar Labs Inc. and Contributors",
     "productName": "Sugarizer",
-    "electronVersion": "9.4.0",
+    "electronVersion": "11.5.0",
     "mac": {
       "category": "public.app-category.education"
     },
