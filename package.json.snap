@@ -1,6 +1,6 @@
 {
   "name": "Sugarizer",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -8,7 +8,7 @@
   },
   "repository": "https://github.com/llaske/sugarizer",
   "author": "Lionel Laské <lionel@sugarizer.org>",
-  "description": "A taste of Sugar on any device",
+  "description": "The leading learning platform for children",
   "license": "Apache-2.0",
   "dependencies": {
     "requirejs": "~2.3.5",
@@ -16,17 +16,17 @@
     "ini": "~1.3.6"
   },
   "devDependencies": {
-      "grunt": "~1.2.1",
+      "grunt": "~1.3.0",
       "grunt-contrib-jshint": "~2.1.0",
       "grunt-contrib-nodeunit": "~2.1.0",
       "grunt-terser": "~1.0.0",
-      "electron": "~9.4.0"
+      "electron": "~11.5.0"
   },
   "build": {
     "appId": "org.olpc-france.sugarizer",
-    "copyright": "Copyright © 2013-2021, Lionel Laské, Sugar Labs Inc. and Contributors",
+    "copyright": "Copyright © 2013-2022, Lionel Laské, Sugar Labs Inc. and Contributors",
     "productName": "Sugarizer",
-    "electronVersion": "9.4.0",
+    "electronVersion": "11.5.0",
     "mac": {
       "category": "public.app-category.education"
     },
