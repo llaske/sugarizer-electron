@@ -11,16 +11,18 @@ cd ..
 rm -rf build
 
 echo --- Copying content
-if [ "$1" != "full" -a "$2" != "full" ]; then
-  echo --- Minimize
-  cd ../sugarizer
-  grunt -v
-  cd ../sugarizer-electron
-fi
+rsync -av --exclude-from='exclude.electron' ../sugarizer/* sugarizer
 rm -rf sugarizer/activities/Jappy.activity
 rm -rf sugarizer/activities/TurtleBlocksJS.activity
-rsync -av --exclude-from='exclude.electron' ../sugarizer/* sugarizer
 cp etoys_remote.index.html sugarizer/activities/Etoys.activity/index.html
+if [ "$1" != "full" -a "$2" != "full" ]; then
+  echo --- Minimize
+  cd sugarizer
+  npm install grunt grunt-contrib-jshint grunt-contrib-nodeunit grunt-terser
+  grunt -v
+  rm -rf node_modules
+  cd ..
+fi
 if [ "$1" == "mac" -o "$2" == "mac" ]; then
   cp package.json.mac sugarizer/package.json
 elif [ "$1" == "win" -o "$2" == "win" ]; then
