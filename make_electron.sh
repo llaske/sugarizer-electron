@@ -1,4 +1,4 @@
-date
+start=`date +%s`
 
 echo --- Init
 mkdir -p sugarizer
@@ -15,6 +15,7 @@ rsync -av --exclude-from='exclude.electron' ../sugarizer/* sugarizer
 rm -rf sugarizer/activities/Jappy.activity
 rm -rf sugarizer/activities/TurtleBlocksJS.activity
 cp etoys_remote.index.html sugarizer/activities/Etoys.activity/index.html
+sed -i -e 's/class="offlinemode"//' sugarizer/activities/Scratch.activity/index.html
 if [ "$1" != "full" -a "$2" != "full" ]; then
   echo --- Minimize
   cd sugarizer
@@ -52,4 +53,9 @@ npm run dist
 cd ..
 cp -r sugarizer/dist/* dist
 
-date
+end=`date +%s`
+runtime=$((end-start))
+hours=$((runtime / 3600))
+minutes=$(( (runtime % 3600) / 60 ))
+seconds=$(( (runtime % 3600) % 60 ))
+echo "Runtime: $hours:$minutes:$seconds (hh:mm:ss)"
