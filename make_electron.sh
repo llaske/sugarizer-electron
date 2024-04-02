@@ -43,6 +43,7 @@ rm -rf dist/*
 
 echo --- Create package
 date
+cp entitlements.mac.plist sugarizer/res
 cd sugarizer
 mkdir build
 mkdir build/icons
